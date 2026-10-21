@@ -624,13 +624,14 @@
       }
       #ob {
         position: fixed;
-        inset: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         z-index: 60;
         background: var(--bg);
         display: none;
         flex-direction: column;
-        height: 100vh;
-        height: 100dvh;
       }
       body.onb #ob {
         display: flex;
@@ -641,6 +642,7 @@
       }
       .obs {
         flex: 1;
+        min-height: 0;
         overflow-y: auto;
         padding: calc(18px + env(safe-area-inset-top)) 0 20px;
       }
@@ -679,7 +681,7 @@
         line-height: 1.5;
       }
       .obf {
-        padding: 12px 0 calc(14px + env(safe-area-inset-bottom));
+        padding: 12px 0 calc(34px + env(safe-area-inset-bottom));
         background: var(--bg);
         border-top: 1px solid var(--bd);
       }
@@ -698,6 +700,14 @@
       }
       .obf .btn2 {
         padding: 15px 22px;
+      }
+      @media (max-height: 700px) {
+        .obm {
+          padding-top: 14px;
+        }
+        .dots {
+          margin-bottom: 16px;
+        }
       }
       .ml {
         display: grid;
