@@ -1,4 +1,4 @@
-:root{color-scheme:dark;--bg:#06110C;--cd:#171717;--ink:#F1F3F0;--mu:#8D9992;--bd:#272D29;--pri:#2F5FE8;--pt:#6C9BFF;--pl:#2F5FE838;--ok:#3FBF84;--okd:#1F7A55;--bad:#F0605F;--warn:#E3A83B}
+:root{color-scheme:light;--bg:#F5F5F2;--cd:#FFFFFF;--ink:#12151F;--mu:#636A78;--bd:#E6E6E0;--pri:#2F5FE8;--pt:#2F5FE8;--pl:#E8EEFE;--ok:#0A7D55;--okd:#0A7D55;--bad:#CC363C;--warn:#D98A06}
 *{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;background:var(--bg);color:var(--ink)}
 button{cursor:pointer;border:0;color:inherit;background:none}
@@ -19,7 +19,7 @@ svg{display:block;flex-shrink:0}
 .ct a{color:var(--pt);font-size:14px;font-weight:700;cursor:pointer}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.two .card{margin:0;display:flex;gap:10px;align-items:center;padding:14px}
 .ci{width:38px;height:38px;border-radius:12px;display:grid;place-items:center}
-.bar{height:8px;border-radius:99px;background:var(--bg);overflow:hidden}.bar i{display:block;height:100%;border-radius:99px;transition:width .5s}
+.bar{height:8px;border-radius:99px;background:var(--bd);overflow:hidden}.bar i{display:block;height:100%;border-radius:99px;transition:width .5s}
 .mu{color:var(--mu);font-size:13px}.sp{display:flex;justify-content:space-between;align-items:center}
 .row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--bd);cursor:pointer}.row:last-child{border:0}
 .ic{width:42px;height:42px;border-radius:14px;display:grid;place-items:center}
@@ -30,15 +30,15 @@ svg{display:block;flex-shrink:0}
 .chip{padding:9px 15px;border-radius:99px;background:var(--cd);border:1px solid var(--bd);color:var(--mu);font-size:14px;font-weight:700}
 .chip.on{background:var(--pri);border-color:var(--pri);color:#fff}
 .nav{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:center;padding:0 16px calc(12px + env(safe-area-inset-bottom));z-index:20;pointer-events:none}
-.nav>div{pointer-events:auto;width:100%;max-width:420px;background:var(--cd);border:1px solid var(--bd);border-radius:99px;display:flex;align-items:center;justify-content:space-between;padding:7px}
+.nav>div{pointer-events:auto;width:100%;max-width:420px;background:var(--cd);border:1px solid var(--bd);box-shadow:0 8px 24px #12151f1f;border-radius:99px;display:flex;align-items:center;justify-content:space-between;padding:7px}
 .nb{display:flex;align-items:center;gap:6px;color:var(--mu);padding:11px 13px;border-radius:99px;font-size:14px;font-weight:700}
-.nb span{display:none}.nb.on{background:var(--ink);color:var(--cd)}.nb.on span{display:inline}
+.nb span{display:none}.nb.on{background:var(--pl);color:var(--pri)}.nb.on span{display:inline}
 .fab{width:46px;height:46px;border-radius:50%;background:var(--pri);color:#fff;display:grid;place-items:center}
-.ov{position:fixed;inset:0;background:#000000ad;z-index:50;display:none;align-items:flex-end;justify-content:center}.ov.show{display:flex}
+.ov{position:fixed;inset:0;background:#12151f73;z-index:50;display:none;align-items:flex-end;justify-content:center}.ov.show{display:flex}
 .sheet{background:var(--cd);border-radius:26px 26px 0 0;width:100%;max-width:560px;max-height:92vh;max-height:92dvh;overflow-y:auto;padding:18px 18px calc(22px + env(safe-area-inset-bottom));animation:up .25s ease}
 @keyframes up{from{transform:translateY(36px);opacity:0}}
 label{display:block;font-size:13px;font-weight:700;color:var(--mu);margin:14px 0 6px}
-.in{width:100%;background:var(--bg);border:1px solid var(--bg);border-radius:14px;color:var(--ink);padding:13px 14px;font-size:15px;outline:none}.in:focus{border-color:var(--pri)}
+.in{width:100%;background:var(--bg);border:1px solid var(--bd);border-radius:14px;color:var(--ink);padding:13px 14px;font-size:15px;outline:none}.in:focus{border-color:var(--pri)}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .tg{display:flex;background:var(--bg);border-radius:14px;padding:4px}.tg button{flex:1;padding:11px;border-radius:11px;font-weight:700;font-size:14px;color:var(--mu)}
 .tg button.e{background:var(--pri);color:#fff}.tg button.i{background:var(--okd);color:#fff}
