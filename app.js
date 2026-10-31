@@ -4,7 +4,7 @@ food:'<path d="M6 3v7a2 2 0 0 0 2 2v9M10 3v7a2 2 0 0 1-2 2M18 21V3c-2 1-3 4-3 8h
 phone:'<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',cash:'<rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/>',card:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h3"/>',bank:'<path d="M3 10l9-6 9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/>',pie:'<circle cx="12" cy="12" r="9"/><path d="M12 3v9h9"/>',mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',zero:'<circle cx="12" cy="12" r="9"/><path d="M8 12h8"/>',pct:'<path d="M5 19L19 5"/><circle cx="7" cy="7" r="2"/><circle cx="17" cy="17" r="2"/>',send:'<path d="M21 3L3 11l7 3 3 7 8-18z"/>',chev:'<path d="M6 9l6 6 6-6"/>',search:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>'};
 const ic=(n,s=20)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${I[n]}</svg>`;
 const icons=()=>document.querySelectorAll("[data-i]").forEach(e=>{e.outerHTML=ic(e.dataset.i,+e.dataset.s||20)});
-const CATS={Food:["food","#E8590C"],Travel:["bus","#4A4AF4"],Shopping:["bag","#D6336C"],Bills:["zap","#D9A400"],Health:["heart","#0E9F6E"],Entertainment:["play","#1C7ED6"],Lending:["swap","#F76707"],Salary:["wallet","#0E9F6E"],Stay:["home","#7C3AED"],"Added money":["wallet","#0E9F6E"],Refund:["swap","#0C8599"],Received:["wallet","#0E9F6E"],Bonus:["wallet","#7C3AED"],Freelance:["store","#0C8599"],Business:["store","#0C8599"],Other:["grid","#6B7084"]};
+const CATS={Food:["food","#F2994A"],Travel:["bus","#5BA9F0"],Shopping:["bag","#E86AA6"],Bills:["zap","#E3B341"],Health:["heart","#3FBF84"],Entertainment:["play","#9B87F5"],Lending:["swap","#F07C4F"],Salary:["wallet","#3FBF84"],Stay:["home","#C792EA"],"Added money":["wallet","#3FBF84"],Refund:["swap","#4FC3C8"],Received:["wallet","#3FBF84"],Bonus:["wallet","#B792F5"],Freelance:["store","#4FC3C8"],Business:["store","#4FC3C8"],Other:["grid","#8D9992"]};
 const EXP=["Food","Travel","Shopping","Bills","Health","Entertainment","Lending","Other"],INC=["Bonus","Business","Freelance","Other"],EXPT=["Food","Travel","Stay","Shopping","Entertainment","Health","Other"],INCT=["Added money","Refund","Received","Other"];
 const MODES={UPI:"phone",Cash:"cash",Card:"card",Bank:"bank"},RATES=[5,12,18,28],MN=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const METHODS=[
@@ -23,10 +23,10 @@ const gstAmt=t=>t.gst?t.amount-t.amount*100/(100+t.gst):0,inP=(t,n)=>ml(n).inclu
 
 const curM=()=>today().slice(0,7);
 const MAIN={id:"main",name:"Monthly Budget",type:"monthly"};
-const STY={Trip:["send","#4A4AF4"],Event:["play","#D6336C"],Shopping:["bag","#E8590C"],Work:["store","#0C8599"],Other:["grid","#6B7084"]};
+const STY={Trip:["send","#F0605F"],Event:["play","#E86AA6"],Shopping:["bag","#F2994A"],Work:["store","#4FC3C8"],Other:["grid","#8D9992"]};
 const TXS=id=>st.tx.filter(t=>(t.sp||"main")===id),TX=()=>TXS(st.cur);
 function SP(){if(st.cur==="main")return MAIN;const x=st.spaces.find(q=>q.id===st.cur);if(x)return x;st.cur="main";return MAIN}
-const isM=()=>SP().type==="monthly",sty=sp=>sp.type==="monthly"?["wallet","#4A4AF4"]:(STY[sp.type]||STY.Other),cats=t=>isM()?(t==="expense"?EXP:INC):(t==="expense"?EXPT:INCT);
+const isM=()=>SP().type==="monthly",sty=sp=>sp.type==="monthly"?["wallet","#3FBF84"]:(STY[sp.type]||STY.Other),cats=t=>isM()?(t==="expense"?EXP:INC):(t==="expense"?EXPT:INCT);
 function fund(sp){const l=TXS(sp.id),ex=sum(l,"expense"),funds=sp.budget+sum(l,"income");return{ex,funds,left:funds-ex}}
 function spDays(sp,l){const f=[sp.created||today(),...l.map(t=>t.date)].sort()[0];return Math.max(1,Math.round((new Date(today()+"T00:00")-new Date(f+"T00:00"))/864e5)+1)}
 function overOk(a){if(isM()){if(st.budget<=0)return true;const ex=sum(TX().filter(t=>inP(t,1)),"expense");return ex+a<=st.budget||confirm("This crosses your monthly budget. Add anyway?")}
