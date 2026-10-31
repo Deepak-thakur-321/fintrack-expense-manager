@@ -23,7 +23,7 @@ const gstAmt=t=>t.gst?t.amount-t.amount*100/(100+t.gst):0,inP=(t,n)=>ml(n).inclu
 
 const curM=()=>today().slice(0,7);
 const MAIN={id:"main",name:"Monthly Budget",type:"monthly"};
-const STY={Trip:["send","#F0605F"],Event:["play","#E86AA6"],Shopping:["bag","#F2994A"],Work:["store","#4FC3C8"],Other:["grid","#8D9992"]};
+const STY={Trip:["send","#6C9BFF"],Event:["play","#E86AA6"],Shopping:["bag","#F2994A"],Work:["store","#4FC3C8"],Other:["grid","#8D9992"]};
 const TXS=id=>st.tx.filter(t=>(t.sp||"main")===id),TX=()=>TXS(st.cur);
 function SP(){if(st.cur==="main")return MAIN;const x=st.spaces.find(q=>q.id===st.cur);if(x)return x;st.cur="main";return MAIN}
 const isM=()=>SP().type==="monthly",sty=sp=>sp.type==="monthly"?["wallet","#3FBF84"]:(STY[sp.type]||STY.Other),cats=t=>isM()?(t==="expense"?EXP:INC):(t==="expense"?EXPT:INCT);
